@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Egocentric Video-Language Pretraining</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    
+    gtag('js', new Date());
+    
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://qinghonglin.github.io/egovlp">
+            EgoVLP
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Egocentric Video-Language Pretraining</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://qinghonglin.github.io/">Kevin Qinghong Lin</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://fingerrec.github.io/">Alex Jinpeng Wang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.mattiasoldan.com/">Mattia Soldan</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://mwray.github.io/"> Michael Wray</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ruiyan1995.github.io/">Rui Yan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Eric Zhongcong Xu<sup>1</sup>,
+            <br>
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=No9OsocAAAAJ&hl=zh-CN&oi=ao">Difei Gao</a><sup>1</sup>,
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=zh-CN&user=BRmu_w8AAAAJ&view_op=list_works&sortby=pubdate"> Rongcheng Tu</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              Wenzhe Zhao<sup>4</sup>,
+            </span>
+            <span class="author-block">
+              Weijie Kong<sup>4</sup>,
+            </span>
+            <span class="author-block">
+               Chengfei Cai<sup>4</sup>,
+            </span>
+            <span class="author-block">
+               Hongfa Wang<sup>4</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="https://dimadamen.github.io/"> Dima Damen</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.bernardghanem.com/"> Bernard Ghanem</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=AjxoEpIAAAAJ&hl=zh-CN"> Wei Liu</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/showlab">  Mike Zheng Shou</a><sup>1</sup>
+            </span>
+          </div>
+
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Show Lab, National University of Singapore,</span>
+            <span class="author-block"><sup>2</sup>University of Bristol,</span>
+            <span class="author-block"><sup>3</sup>King Abdullah University of Science and Technology,</span>
+            <span class="author-block"><sup>4</sup>Tencent Data Platform</span>
+          </div>
+    
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2206.01670"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/showlab/EgoVLP"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://ego4d-data.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Ego4D</span>
+                  </a>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- TL;DR. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">TL;DR</h2>
+        <div class="content has-text-justified">
+          <p>
+            We pioneer Egocentric Video-Language Pretraining from pretraining dataset, model and development benchmark; the resulted pretrained model exhibits strong performance on five downstream tasks across three egocentric datasets.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- TL;DR. -->
+    <!-- Framework. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">EgoVLP Framework</h2>
+        <div class="content has-text-justified">
+          <img class="thumbnail" src="./static/images/framework.jpeg" style="width:100%; margin-bottom:20px">
+          <p>
+Our EgoVLP includes: (a) pretraining set EgoClip; (b) VLP model; and (c) development set EgoMCQ. We use EgoClip to pretrain a VLP model with EgoNCE loss and then evaluate on EgoMCQ. According to the feedback, we iteratively refine our designs of (a) and (b). We then transfer the pretrained model to downstream tasks relevant to the egocentric domain.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Framework. -->
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Video-Language Pretraining (VLP), aiming to learn transferable representation to advance a wide range of video-text downstream tasks, has recently received increasing attention. Dominant works that achieve strong performance rely on large-scale, 3rd-person video-text datasets, such as HowTo100M. In this work, we exploit the recently released Ego4D dataset to pioneer Egocentric VLP along three directions. (i) We create EgoClip, a 1st-person video-text pretraining dataset comprising 3.8M clip-text pairs well-chosen from Ego4D, covering a large variety of human daily activities. (ii) We propose a novel pretraining objective, dubbed as EgoNCE, which adapts video-text contrastive learning to egocentric domain by mining egocentric-aware positive and negative samples. (iii) We introduce EgoMCQ, a development benchmark that is close to EgoClip and hence can support effective validation and fast exploration of our design decisions regarding EgoClip and EgoNCE. Furthermore, we demonstrate strong performance on five egocentric downstream tasks across three datasets: video-text retrieval on EPIC-KITCHENS-100; action recognition on Charades-Ego; and natural language query, moment query, and object state change classification on Ego4D challenge benchmarks.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{kevin2022egovlp,
+	title={Egocentric Video-Langugae Pretraining},
+	author={Kevin Qinghong Lin and Alex Jinpeng Wang and Mattia Soldan and Michael Wray and Rui Yan and Eric Zhongcong Xu and Difei Gao and Rongcheng Tu and Wenzhe Zhao and Weijie Kong and Chengfei Cai and Hongfa Wang and Dima Damen and Bernard Ghanem and Wei Liu and Mike Zheng Shou},
+	journal={arXiv preprint arXiv:2206.01670},
+	year={2022}
+}</code></pre>
+  </div>
+</section>
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            We create this website based on the source code of <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies.github.io</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
