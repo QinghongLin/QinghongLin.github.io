@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="shortcut icon" href="./figures/world.png">
+  <link rel="stylesheet" href="./index_files/jemdoc.css" type="text/css">
+  <meta name="description" content="When Vision Meets Code — Kevin Qinghong Lin">
+  <title>When Vision Meets Code — Kevin Qinghong Lin</title>
+  <style>
+    /* Blog-specific overrides */
+    body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    #layout-content {
+      margin-top: 30px;
+    }
+
+    .back-link {
+      font-size: 0.92em;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .blog-meta {
+      color: #888;
+      font-size: 0.92em;
+      margin-bottom: 28px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 12px;
+    }
+
+    blockquote {
+      border-left: 3px solid #6495ED;
+      margin: 0 0 18px 0;
+      padding: 6px 16px;
+      color: #555;
+      font-style: italic;
+      background: #f9f9f9;
+    }
+
+    pre {
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 0.82em;
+      overflow-x: auto;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    code {
+      background: #f5f5f5;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 28px 0;
+    }
+
+    /* Media tables */
+    .media-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    .media-table th {
+      text-align: center;
+      padding: 8px 12px;
+      font-weight: bold;
+      background: #f7f7f7;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .media-table td {
+      text-align: center;
+      padding: 10px 8px;
+      vertical-align: top;
+    }
+
+    .media-wrap {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .media-wrap img,
+    .media-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-caption {
+      font-size: 0.82em;
+      color: #666;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* SVG / code comparison table */
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      font-size: 0.88em;
+    }
+
+    .example-table th {
+      background: #f7f7f7;
+      border: 1px solid #ddd;
+      padding: 8px 12px;
+      text-align: center;
+    }
+
+    .example-table td {
+      border: 1px solid #ddd;
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+
+    .example-table td pre {
+      margin: 0;
+      font-size: 0.78em;
+    }
+
+    .example-table td img {
+      max-width: 160px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .example-table td em {
+      display: block;
+      text-align: center;
+      color: #888;
+      font-size: 0.85em;
+      margin-top: 5px;
+    }
+
+    /* Section headers */
+    h2 {
+      margin-top: 36px;
+    }
+
+    h3 {
+      margin-top: 24px;
+    }
+
+    p {
+      text-align: justify;
+      line-height: 1.65;
+    }
+
+    .references {
+      font-size: 0.88em;
+    }
+
+    .references li {
+      margin-bottom: 4px;
+    }
+
+    .center-img {
+      display: block;
+      margin: 18px auto;
+      max-width: 100%;
+    }
+
+    /* Looking forward box */
+    .insight-box {
+      background: #f0f5ff;
+      border-left: 3px solid #6495ED;
+      padding: 12px 16px;
+      margin: 18px 0;
+      border-radius: 0 4px 4px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="layout-content">
+
+    <a class="back-link" href="https://qhlin.me/">Kevin's Homepage</a>
+
+    <div id="toptitle">
+      <h1>When Vision Meets Code</h1>
+    </div>
+
+    <div class="blog-meta">
+      Author: Kevin Qinghong Lin, Claude</br>
+      Figure: Gemini-3-Pro</br>
+      UI: Claude
+    </div>
+
+    <p>
+      Unlike natural <code>language</code> — free-form, flexible, and descriptive — <code>code</code> is precise, structured, and executable.
+      It doesn't just <em>describe</em> what should happen; it <em>makes</em> it happen. And while code is still often
+      treated as a specialized "language" modality, its role has become central in program synthesis, software
+      engineering, and tool use — especially in the agent era.
+    </p>
+
+    <p>
+      Something interesting is happening at the frontier. The <a href="https://x.com/GoogleDeepMind/status/2001353413213458848">Gemini series</a>
+      uses code generation (e.g., SVG) to push the boundaries of multimodal capability.
+      <a href="https://www.kimi.com/blog/kimi-k2-5.html">Kimi K2.5</a> emphasizes visual agentic intelligence —
+      reconstructing a website from visual demonstrations. Together, these point to a growing intuition:
+      <strong>code sits on the bridge between language and vision.</strong>
+    </p>
+
+    <p>
+      In this blog, I want to share my thoughts and recent works on <strong><em>what happens when vision meets code</em></strong>:
+      how code can reshape images, video, 3D, and world models.
+    </p>
+
+    <img class="center-img" src="./assets/teaser.png" alt="teaser" style="max-width: 720px;">
+
+
+    <!-- ==================== SECTION 1 ==================== -->
+    <h2>Code as Visual Representation</h2>
+
+    <p>
+      Most AI systems "see" images the same way a camera does — as a grid of millions of pixels, each storing a precise
+      color value. It works, but it's a lot of data, and it's not really how <em>humans</em> see. When we glance at a
+      scene, we don't mentally log every pixel. We notice structure: where things are, how many there are, what shapes
+      they form.
+    </p>
+
+    <p>
+      Think of how an artist starts with a rough sketch before adding color and detail. That sketch — spare, symbolic,
+      structural — is often enough to convey meaning. We propose borrowing this idea for AI: instead of pixels,
+      represent images as <strong>Scalable Vector Graphics (SVG) code</strong>.
+    </p>
+
+    <p>
+      SVG is the format behind every crisp icon, logo, and diagram on the web. Rather than storing colors
+      pixel-by-pixel, it describes shapes: <em>draw a blue rectangle here, a circle there, a curved path connecting
+      them</em>. It's compact, human-readable, and — crucially — executable. This raises a compelling question:
+      <strong>can an AI learn to see and reason through code, rather than pixels?</strong>
+    </p>
+
+    <p>Here's a quick example. Given a photo, can a model reconstruct it as clean SVG code that renders back into something visually meaningful?</p>
+
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th>Input Image</th>
+          <th>SVG Code</th>
+          <th>Rendered Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align:center; width:22%;">
+            <img src="assets/vcode/image.jpg" alt="Input image">
+            <em>A photo of Peppa</em>
+          </td>
+          <td style="width:55%;">
+<pre>&lt;svg viewBox="0 0 320 190" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;rect x="0" y="0" width="320" height="190" fill="#7ec0ee"/&gt;
+  &lt;rect x="0" y="120" width="320" height="70" fill="#72c45a"/&gt;
+  &lt;path d="M0 135 Q60 130 120 140 T240 140
+           Q290 138 320 132 L320 190 0 190 Z"
+        fill="#6bbc53" opacity="0.6"/&gt;
+  &lt;!-- Character, flowers, grass --&gt;
+  ...
+&lt;/svg&gt;</pre>
+          </td>
+          <td style="text-align:center; width:22%;">
+            <img src="assets/vcode/render.svg" alt="Rendered SVG">
+            <em>Rendered from code</em>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      This is the core idea behind <a href="https://arxiv.org/abs/2511.02778">VCode</a>:
+      <strong>if a model truly understands an image, it should be able to reconstruct it as executable SVG code.</strong>
+      Not a pixel-perfect copy — a symbolic one. The objects, their positions, their relationships, the text, the visual
+      hierarchy — all expressed as clean, human-readable vector primitives. If you can write code that renders it,
+      you've proven you understood it.
+    </p>
+
+    <hr class="section-divider">
+
+    <p>
+      But how do you measure whether the code actually captured what matters? We introduce <strong>CodeVQA</strong>,
+      a simple but powerful evaluation: convert an image to SVG, render the SVG, then ask a visual question-answering
+      model to answer questions using <em>only</em> the rendered version. If the answers match those from the original
+      image, the SVG successfully preserved the meaning — not just the aesthetics.
+    </p>
+
+    <p>
+      Think of it like a compression test: if the rendered code can still answer <em>"How many people are in the image?"</em>
+      or <em>"What does the sign say?"</em>, the code has done its job.
+    </p>
+
+    <img class="center-img" src="./assets/vcode/codevqa.png" alt="CodeVQA pipeline" style="max-width: 680px;">
+
+
+    <!-- ==================== SECTION 2 ==================== -->
+    <h2>Video Generation via Programming</h2>
+
+    <p>
+      If code can represent a static image, can it represent a dynamic one? Video is just images over time —
+      and time is something code handles naturally through sequences, loops, and state transitions.
+    </p>
+
+    <p>
+      The limitations of pixel-based video generation become obvious the moment you need structured content. Ask a
+      diffusion model to generate an educational video explaining the Pythagorean theorem: you'll get beautiful visuals
+      with garbled equations, inconsistent text, and layouts that drift frame to frame. The problem is fundamental —
+      continuous pixel space is poorly suited for <em>discrete, symbolic</em> elements like text, math notation, and
+      diagrams. "Approximately correct" text is just wrong text.
+    </p>
+
+    <p>
+      <a href="https://arxiv.org/abs/2510.01174">Code2Video</a> reframes video creation as <strong>code generation</strong>.
+      Instead of predicting pixels, it writes executable Python scripts using the
+      <a href="https://www.manim.community/">Manim</a> animation library — the same tool behind 3Blue1Brown's math
+      visualizations. Every element is precisely specified: formula layout, animation timing, color transitions.
+      The rendering engine handles the pixels, not a neural network.
+    </p>
+
+    <table class="media-table">
+      <thead>
+        <tr>
+          <th>Instruction</th>
+          <th>Pixel Gen: Veo3</th>
+          <th>Code Gen: Claude Opus 4.0</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="vertical-align: middle; font-weight: bold; width: 22%;">Large Language Model</td>
+          <td>
+            <div class="media-wrap">
+              <img src="assets/code2video/veo3.gif" alt="Veo3 generation">
+            </div>
+          </td>
+          <td>
+            <div class="media-wrap">
+              <img src="assets/code2video/claude.gif" alt="Claude generation">
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Real-world Applications</h3>
+
+    <p>
+      This idea is already finding its way into real products.
+      <a href="https://www.remotion.dev/">Remotion</a> builds programmatic video on React — each frame is a component,
+      each video is a codebase. <a href="https://www.3blue1brown.com/">3Blue1Brown</a> applies the same pipeline to
+      create stunning math visualizations that have captivated millions. Here's a glimpse of what they produce:
+    </p>
+
+    <table class="media-table">
+      <thead>
+        <tr>
+          <th>3Blue1Brown</th>
+          <th>Remotion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="media-wrap" style="max-width:320px;">
+              <img src="assets/product/3b1b.gif" alt="3Blue1Brown example">
+            </div>
+            <p class="media-caption">"How might LLMs store facts"</p>
+          </td>
+          <td>
+            <div class="media-wrap" style="max-width:320px;">
+              <img src="assets/product/remotion.gif" alt="Remotion example">
+            </div>
+            <p class="media-caption">"This video was made with code"</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!-- ==================== SECTION 3 ==================== -->
+    <h2>Coder as World Model</h2>
+
+    <p>
+      Above we used code to <em>describe</em> existing visual content — converting images to SVG, topics to animated
+      videos. But code can do something more powerful: it can <strong>simulate environments</strong>.
+      We discuss two representative cases.
+    </p>
+
+    <h3>3D: Blender Code as Engine</h3>
+
+    <p>
+      A Blender script doesn't just describe a 3D scene — it defines a world with physics, lighting, and interaction
+      rules. <a href="https://fugtemypt123.github.io/VIGA-website/">VIGA</a> reframes 3D reconstruction as
+      <strong>code generation</strong>: given a 2D image, produce a <strong>Blender Python script</strong> that
+      constructs the scene as a fully parametric program — named objects with geometry, materials, lighting, and camera
+      pose. The output isn't a frozen neural rendering; it's an editable scene graph expressed in code.
+    </p>
+
+    <table class="media-table">
+      <thead>
+        <tr>
+          <th><em>Input</em></th>
+          <th><em>Reconstruct the scene</em></th>
+          <th><em>Throw a ball to knock over all the objects</em></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="media-wrap">
+                <img src="assets/viga/target.png" type="image/png">
+            </div>
+          </td>
+          <td>
+            <div class="media-wrap">
+              <video autoplay loop muted playsinline>
+                <source src="assets/viga/render.mp4" type="video/mp4">
+                <img src="assets/viga/render.mp4" alt="Reconstructed scene">
+              </video>
+            </div>
+          </td>
+          <td>
+            <div class="media-wrap">
+              <video autoplay loop muted playsinline>
+                <source src="assets/viga/art.mp4" type="video/mp4">
+                <img src="assets/viga/target.mp4" alt="Ball throw interaction">
+              </video>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>GUI: HTML Code as Engine</h3>
+
+    <p>
+      Autonomous GUI agents — systems that navigate apps, click buttons, and fill forms on behalf of users — need to
+      predict what happens <em>before</em> they act. Confirm the wrong payment, delete the wrong file, and there's no
+      undo. This predictive capability is a <strong>world model</strong>: given the current screen and a proposed
+      action, simulate the next screen.
+    </p>
+
+    <p>
+      Existing approaches either describe the next state in text (losing visual information) or hallucinate it with
+      diffusion (producing garbled text, collapsed layouts, misaligned buttons). <strong>Code2World</strong> proposes
+      the obvious-in-retrospect alternative: predict the next GUI state as <strong>renderable HTML/CSS</strong>, then
+      render it with a browser.
+    </p>
+
+    <img class="center-img" src="./assets/code2world/teaser.png" alt="Code2World teaser" style="max-width: 680px;">
+
+    <p>
+      The insight is that GUIs are already defined by code. HTML is the native representation of user interfaces. By
+      framing next-state prediction as HTML generation, Code2World leverages VLMs' enormous web-code pretraining —
+      not as a hack, but as a natural alignment between representation and prior knowledge.
+    </p>
+
+
+    <!-- ==================== LOOKING FORWARD ==================== -->
+    <h2>Looking Forward</h2>
+
+    <div class="insight-box">
+      <strong>Coder should be naive multimodality.</strong><br>
+      It means a model can receive both text instructions <em>and</em> visual demonstrations to write code and
+      reproduce effects — bridging language and vision through the shared language of programs.
+    </div>
+
+
+    <!-- ==================== REFERENCES ==================== -->
+    <hr class="section-divider">
+    <h2>References</h2>
+
+    <ul class="references">
+      <li>"VCode: a Multimodal Coding Benchmark with SVG as Symbolic Visual Representation." [<a href="https://arxiv.org/abs/2511.02778">Paper</a>]</li>
+      <li>"A Vision Check-up for Language Models." [<a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Sharma_A_Vision_Check-up_for_Language_Models_CVPR_2024_paper.pdf">Paper</a>]</li>
+      <li>"Code2Video: A Code-centric Paradigm for Educational Video Generation." [<a href="https://arxiv.org/abs/2510.01174">Paper</a>]</li>
+      <li>"TheoremExplainAgent: Towards Video-based Multimodal Explanations for LLM Theorem Understanding." [<a href="https://aclanthology.org/2025.acl-long.332.pdf">Paper</a>]</li>
+      <li>"VIGA: Vision-as-Inverse-Graphics Agent via Interleaved Multimodal Reasoning." [<a href="https://arxiv.org/abs/2601.11109">Paper</a>]</li>
+      <li>"Code2World: A GUI World Model via Renderable Code Generation." [<a href="https://arxiv.org/abs/2602.09856">Paper</a>]</li>
+      <li>"JanusCoder: Towards a Foundational Visual-Programmatic Interface for Code Intelligence." [<a href="https://arxiv.org/pdf/2510.23538">Paper</a>]</li>
+      <li>Remotion — Make videos programmatically with React. [<a href="https://www.remotion.dev">Website</a>]</li>
+      <li>3Blue1Brown. [<a href="https://www.3blue1brown.com/">Website</a>]</li>
+    </ul>
+
+    <br>
+    <div align="center">
+      <font color="gray">&copy; Kevin</font>
+    </div>
+    <br>
+
+  </div>
+</body>
+</html>
