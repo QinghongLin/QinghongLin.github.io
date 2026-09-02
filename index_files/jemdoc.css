@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  font-family: Georgia, Helvetica, Arial, Verdana, san-serif, Times;
+  font-family: "Crimson Pro", Georgia, "Times New Roman", serif;
   color: #000;
   background-color: #ffffff; 
   text-align:left; /* for IE */
@@ -69,9 +69,9 @@ tt {
     background: #ffffdd;
 }
 
-pre, tt {
+pre, tt, code, kbd, samp {
 	font-size: 90%;
-	font-family: monaco, monospace;
+	font-family: "Ubuntu Mono", monaco, monospace;
 }
 
 a, a > tt {
@@ -371,4 +371,62 @@ img {
 table.imgtable, table.imgtable td {
     border: none;
     text-align: left;
+}
+
+
+/* ------------------------------------------------------------------
+   Social links as small square boxes (same look as the framed/ pages)
+   ------------------------------------------------------------------ */
+
+p.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3em;
+}
+
+p.social-links a,
+p.social-links a:hover {
+    border-bottom: none;
+}
+
+p.social-links button {
+    background: transparent;
+    border: 1px solid #224b8d;
+    border-radius: 0;
+    color: #224b8d;
+    font-family: inherit;
+    font-size: 0.92em;
+    line-height: 1.55;
+    padding: 1px 7px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+p.social-links button:hover {
+    background-color: #224b8d;
+    color: #ffffff;
+}
+
+
+/* ------------------------------------------------------------------
+   News: a scrollable list so a long history does not dominate the page
+   ------------------------------------------------------------------ */
+
+div.news-list {
+    max-height: 360px;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    padding-right: 0.7em;
+    margin-bottom: 1.2em;
+}
+
+div.news-list ul {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+div.news-list li {
+    margin-bottom: 0.45em;
+    line-height: 1.35;
 }
