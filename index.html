@@ -17,6 +17,136 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Ubuntu+Mono:wght@400;700&display=swap">
 	<link rel="stylesheet" href="./index_files/jemdoc.css" type="text/css">
+	<script>
+		// Apply the saved theme before the page renders. If the visitor has
+		// never chosen one, pick by their local time (their own timezone):
+		// dark from 19:00 to 07:00, light otherwise.
+		(function () {
+			try {
+				var saved = localStorage.getItem('theme');
+				if (saved === 'dark' || saved === 'light') {
+					document.documentElement.setAttribute('data-theme', saved);
+				} else {
+					var hour = new Date().getHours();
+					if (hour >= 19 || hour < 7) {
+						document.documentElement.setAttribute('data-theme', 'dark');
+					}
+				}
+			} catch (e) { }
+		})();
+	</script>
+	<style>
+		/* Light / dark toggle button: top-right corner inside the white page */
+		#layout-content {
+			position: relative;
+		}
+
+		#theme-toggle {
+			position: absolute;
+			top: 0;
+			right: 1em;
+			z-index: 1000;
+			background: none;
+			color: #224b8d;
+			border: none;
+			padding: 4px;
+			line-height: 1;
+			cursor: pointer;
+		}
+
+		#theme-toggle:hover {
+			background: none;
+			color: #527bbd;
+		}
+
+		#theme-toggle svg {
+			display: block;
+			width: 30px;
+			height: 30px;
+		}
+
+		#theme-toggle .sun {
+			display: none;
+		}
+
+		html[data-theme="dark"] #theme-toggle .moon {
+			display: none;
+		}
+
+		html[data-theme="dark"] #theme-toggle .sun {
+			display: block;
+		}
+
+		/* Dark mode (light mode is unchanged) */
+		html[data-theme="dark"] {
+			background-color: #101216;
+			color-scheme: dark;
+		}
+
+		html[data-theme="dark"] body,
+		html[data-theme="dark"] #layout-content,
+		html[data-theme="dark"] table#tlayout {
+			background-color: #1a1d23;
+			color: #e6e6e6;
+		}
+
+		html[data-theme="dark"] h1,
+		html[data-theme="dark"] h2,
+		html[data-theme="dark"] h3 {
+			color: #8ab4f8;
+			border-bottom-color: #444c5c;
+		}
+
+		html[data-theme="dark"] h3 {
+			border-bottom: none;
+		}
+
+		html[data-theme="dark"] a,
+		html[data-theme="dark"] a>tt {
+			color: #8ab4f8;
+		}
+
+		html[data-theme="dark"] a:hover {
+			border-bottom-color: #8ab4f8;
+		}
+
+		html[data-theme="dark"] dd {
+			color: #cccccc;
+		}
+
+		html[data-theme="dark"] tt {
+			background: #2a2e37;
+		}
+
+		html[data-theme="dark"] p.social-links button {
+			border-color: #8ab4f8;
+			color: #8ab4f8;
+		}
+
+		html[data-theme="dark"] p.social-links button:hover {
+			background-color: #8ab4f8;
+			color: #1a1d23;
+		}
+
+		html[data-theme="dark"] div#footer {
+			border-top-color: #444c5c;
+			color: #9aa3b2;
+		}
+
+		html[data-theme="dark"] div#footer a {
+			color: #8ab4f8;
+		}
+
+		html[data-theme="dark"] #theme-toggle {
+			background: none;
+			color: #8ab4f8;
+		}
+
+		html[data-theme="dark"] #theme-toggle:hover {
+			background: none;
+			color: #aecbfa;
+		}
+	</style>
 	<title>Kevin Qinghong Lin @ University of Oxford</title>
 	<script async="" src="./index_files/analytics.js"></script>
 	<script type="text/javascript" async="" src="./index_files/ga.js"></script>
@@ -37,6 +167,8 @@
 
 <body>
 	<div id="layout-content" style="margin-top:25px">
+		<button id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"
+			title="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg></button>
 		<!-- <table> -->
 <!-- <h1 style="text-align: center;">Kevin Qinghong Lin</h1> -->
 
@@ -371,7 +503,7 @@ Yanzhe Chen*, Zechen Bai*, Zhijun Cao*, Wenzheng Zeng*, <u>Kevin QH. Lin</u>, Yi
 								<br>
 								<a style="color:#D6453B">#1 Huggingface daily paper.</a><br>
 								<a style="color:#D6453B"><b>Outstanding Paper Award, </b>NeurIPS 2024 Open-World agent workshop.</a><br>
-								<a style="color:#D6453B">The model has been downloaded for over 290,000 times. 1.9K github stars.</a>
+								<a style="color:#D6453B">The model has been downloaded for over <b>300,000</b> times. 1.9K github stars.</a>
 						</td>
 					</tr>
 					<tr>
@@ -882,6 +1014,36 @@ Difei Gao, Siyuan Hu, <u>Kevin QH. Lin</u>, Mike Z. Shou.<br>
 
 				ga('create', 'UA-88615920-1', 'auto');
 				ga('send', 'pageview');
+			</script>
+			<script>
+				(function () {
+					var btn = document.getElementById('theme-toggle');
+					function render() {
+						var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+						btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+						btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+						btn.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+					}
+					btn.addEventListener('click', function () {
+						var dark = document.documentElement.getAttribute('data-theme') !== 'dark';
+						document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+						try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) { }
+						render();
+					});
+					render();
+					// Until the visitor picks a theme manually, keep following
+					// their local time (e.g. switch to dark at 19:00 while open).
+					try {
+						if (!localStorage.getItem('theme')) {
+							setInterval(function () {
+								try { if (localStorage.getItem('theme')) return; } catch (e) { }
+								var hour = new Date().getHours();
+								document.documentElement.setAttribute('data-theme', (hour >= 19 || hour < 7) ? 'dark' : 'light');
+								render();
+							}, 60000);
+						}
+					} catch (e) { }
+				})();
 			</script>
 		</div>
 	</div>
